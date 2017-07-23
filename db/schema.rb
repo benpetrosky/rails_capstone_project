@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723193343) do
+ActiveRecord::Schema.define(version: 20170723201150) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "username"
     t.string "password_hash"
     t.string "password_salt"
+    t.string "profile_pic_file_name"
+    t.string "profile_pic_content_type"
+    t.integer "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
 end
