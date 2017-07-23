@@ -1,0 +1,7 @@
+<h1>List of users</h1>
+
+<% @users.each do |user| %>
+  <ul>
+    <li><%= image_tag user.profile_pic(:thumb) %>|<%= link_to user.username, user_path(user) %></li>
+  </ul>
+  <% end %>

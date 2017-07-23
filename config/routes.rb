@@ -8,4 +8,8 @@ Rails.application.routes.draw do
    get '/home' => 'sessions#home'
    post '/signin' => 'sessions#create'
    get '/signout' => 'sessions#destroy'
+
+   get '/all' => 'users#list'
+
+   resources :users
 end

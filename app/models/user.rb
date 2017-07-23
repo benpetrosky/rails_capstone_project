@@ -7,6 +7,12 @@ class User < ApplicationRecord
   has_attached_file :profile_pic, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\z/
 
+  has_and_belongs_to_many(:users,
+    :join_table => "user_connections",
+    :foreign_key => "user_a_id",
+    :association_foreign_key => "user_b_id")
+
+
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt
     self.password_hash = BCrypt::Engine.hash_secret(password,password_salt)

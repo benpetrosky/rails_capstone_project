@@ -10,7 +10,7 @@
 
   <body>
     <% if current_user %>
-      <%= current_user.username %> | <%= link_to "Sign out", '/signout' %> | <%= link_to "Home", '/home' %> | <%= link_to "true home", '/' %>
+      <%= current_user.username %> | <%= link_to "Sign out", '/signout' %> | <%= link_to "Home", '/home' %> | <%= link_to "true home", '/' %> | <%= link_to "List of all users", '/all' %>
     <% else %>
       <%= link_to "Sign up", 'signup' %> | <%= link_to "Sign in", '/signin' %>
     <% end %>

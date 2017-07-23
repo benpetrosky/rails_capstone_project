@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def other_user
+  #   @other_user = User.find(:id)
+  # end
+
   def authorize
    if !current_user
     #  flash[:alert] = "You aren't authorized to visit that page."
