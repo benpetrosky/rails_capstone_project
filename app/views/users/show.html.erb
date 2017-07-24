@@ -1,1 +1,12 @@
+<h1>Hola <%= @profile.username %></h1>
+
 <%=image_tag @profile.profile_pic.url(:medium) %>
+
+<% if @profile != current_user%>
+
+<p>Send <%= @profile.username %> a message!</p>
+
+<p><%= link_to "Add a review", new_user_message_path(@profile) %></p>
+
+
+<% end %>

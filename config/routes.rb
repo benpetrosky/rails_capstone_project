@@ -5,11 +5,12 @@ Rails.application.routes.draw do
    post '/users' => 'users#create'
 
    get '/signin' => 'sessions#new'
-   get '/home' => 'sessions#home'
    post '/signin' => 'sessions#create'
    get '/signout' => 'sessions#destroy'
 
    get '/all' => 'users#list'
 
-   resources :users
+   resources :users do
+     resources :messages
+   end
 end
