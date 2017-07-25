@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
    get '/all' => 'users#list'
 
-   resources :users do
-     resources :messages
+   resources :users
+
+   resources :conversations, only: [:index, :show, :destroy] do
+     member do
+       post :reply
+     end
    end
+  resources :messages, only: [:new, :create]
 end

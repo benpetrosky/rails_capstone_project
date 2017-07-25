@@ -10,10 +10,24 @@
 
   <body>
     <% if current_user %>
-      <%= current_user.name %> | <%= link_to "Sign out", '/signout' %> | <%= link_to "Home", user_path(current_user) %> | <%= link_to "true home", '/' %> | <%= link_to "List of all users", '/all' %>
+      <%= current_user.name %> | <%= link_to "Sign out", '/signout' %> | <%= link_to "Home", user_path(current_user) %> | <%= link_to "true home", '/' %> | <%= link_to "List of all users", '/all' %> | <%= link_to 'Your Conversations', conversations_path %>
     <% else %>
       <%= link_to "Sign up", 'signup' %> | <%= link_to "Sign in", '/signin' %>
     <% end %>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+      <% end %>
+
+      <div class="page-header">
+        <h1><%= yield :page_header %></h1>
+      </div>
+
+
+
+
     <%= flash[:notice] %>
     <%= flash[:alert] %>
     <%= yield %>

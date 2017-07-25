@@ -1,5 +1,11 @@
 class User < ApplicationRecord
-  has_many :messages
+  acts_as_messageable
+
+
+
+  def mailboxer_email(object)
+    self.email
+  end
 
   attr_accessor :password
   validates_confirmation_of :password
