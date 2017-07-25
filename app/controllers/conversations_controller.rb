@@ -1,10 +1,7 @@
 class ConversationsController < ApplicationController
   # before_action :authenticate_user!
   before_action :get_mailbox
-
   before_action :get_box, only: [:index]
-
-
   before_action :get_conversation, except: [:index, :empty_trash]
 
 
@@ -33,20 +30,26 @@ class ConversationsController < ApplicationController
     redirect_to conversations_path
   end
 
-def restore
-  @conversation.untrash(current_user)
-  flash[:success] = 'The conversation was restored.'
-  redirect_to conversations_path
-end
+  def restore
+    @conversation.untrash(current_user)
+    flash[:success] = 'The conversation was restored.'
+    redirect_to conversations_path
+  end
 
-def reply
-  current_user.reply_to_conversation(@conversation, params[:body])
-  flash[:success] = 'Reply sent'
-  redirect_to conversation_path(@conversation)
-end
+  def reply
+    current_user.reply_to_conversation(@conversation, params[:body])
+    flash[:success] = 'Reply sent'
+    redirect_to conversation_path(@conversation)
+  end
 
-def show
-end
+  def mark_as_read
+    @conversation.mark_as_read(current_user)
+    flash[:success] = 'The conversation was marked as read.'
+    redirect_to conversations_path
+  end
+
+  def show
+  end
 
   private
 
@@ -61,7 +64,7 @@ end
     @conversation ||= @mailbox.conversations.find(params[:id])
   end
 
-    def get_mailbox
-      @mailbox ||= current_user.mailbox
-    end
+  def get_mailbox
+    @mailbox ||= current_user.mailbox
   end
+end
