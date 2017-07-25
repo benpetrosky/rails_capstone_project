@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724020122) do
-
-  create_table "messages", force: :cascade do |t|
-    t.integer "sender"
-    t.text "content"
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 20170725144330) do
 
   create_table "user_connections", id: false, force: :cascade do |t|
     t.integer "user_a_id", null: false
