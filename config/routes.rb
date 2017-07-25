@@ -13,9 +13,22 @@ Rails.application.routes.draw do
    resources :users
 
    resources :conversations, only: [:index, :show, :destroy] do
-     member do
-       post :reply
-     end
-   end
+  member do
+    post :reply
+  end
+end
+
+resources :conversations, only: [:index, :show, :destroy] do
+  member do
+    post :restore
+  end
+end
+
+   resources :conversations, only: [:index, :show, :destroy] do
+  collection do
+    delete :empty_trash
+  end
+end
+
   resources :messages, only: [:new, :create]
 end
