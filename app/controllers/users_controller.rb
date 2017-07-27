@@ -8,6 +8,10 @@ def list
 @users = User.all
 end
 
+def edit
+  @user = current_user
+end
+
 def show
   @profile= User.find(params[:id])
 end
@@ -18,10 +22,21 @@ end
    if @user.save
      flash[:notice] = "You've successfully signed up!"
      session[:user_id] = @user.id
-     redirect_to "/"
+     redirect_to user_path(current_user)
    else
      flash[:alert] = "There was a problem signing up."
      redirect_to '/signup'
+   end
+ end
+
+ def update
+   @user = User.find(params[:id])
+   if @user.update(user_params)
+     flash[:notice] = "You have successfully updated your profile!"
+     redirect_to user_path(@user)
+   else
+     flash[:alert] = "There was an issue updating your profile."
+     render '/'
    end
  end
 
@@ -30,6 +45,6 @@ end
 
 
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_pic)
+  params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_pic, :bio, :teacher, :experience, :expertise, :eager_to_learn)
 end
 end

@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ #body {
+   background-color: grey;
+   margin-bottom: 100px;
+ }
+#profile_pic {
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   border: 3px solid white;
+   display: block;
+  margin: auto;
+  width: 20%;
+ }
+
+ #profile_pic_div{
+   padding: 15px;
+   background-color: blue;
+   text-align: center;
+   color: white;
+
+ }
+ .list_name {
+   font-size: 1.6em;
+   background-color: white;
+   padding: 3px;
+   -webkit-border-radius: 10%;
+   -moz-border-radius: 10%;
+   border-radius: 10%;
+ }
+ .list_picture{
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   width: 100px;
+   border: 2px solid white;
+   height: auto;
+   margin-right: 50px;
+ }
+
+ .navbar-nav{
+   text-align: center;
+ }
+ .prof_detail_title {
+   text-align: center;
+  text-decoration: underline;
+ }
+ ul {
+   list-style-type: none;
+   text-align: center;
+ }
+ h1 {
+   text-align: center;
+
+ }
+ h5 {
+   text-align: center;
+
+ }
+ h5:hover {
+   font-size: 1.8em;
+   background-color: grey;
+ }
+
+ @import 'bootstrap';
+@import 'bootstrap/theme';

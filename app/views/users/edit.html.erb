@@ -1,0 +1,33 @@
+<%= form_for @user do |f| %>
+  <%= f.label "Change your Username:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :profile_pic, "Upload Your Profile Picture" %>
+  <%= f.file_field :profile_pic %>
+  <br>
+  <%= f.label "Update your bio:" %>
+  <br>
+  <%= f.text_area :bio %>
+  <br>
+  <%= f.label "Check if you plan on using this site to teach" %>
+  <%= f.check_box :teacher %>
+  <br>
+
+  <%= f.label "What is your area of expertise? (Only fill in if you checked yes to previous question)" %>
+  <br>
+  <%= f.text_area :expertise %>
+  <br>
+
+  <%= f.label "What experience teaching do you have(only fill in if you checked yes to previous question)" %>
+  <br>
+  <%= f.text_area :experience %>
+  <br>
+
+  <%= f.label "What do you want to learn? (Only fill in if you checked no to previous question)" %>
+  <br>
+  <%= f.text_area :eager_to_learn%>
+    <br>
+  <%= f.submit %>
+
+
+<% end %>

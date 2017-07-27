@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725162925) do
+ActiveRecord::Schema.define(version: 20170727153250) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string "unsubscriber_type"
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(version: 20170725162925) do
     t.integer "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
     t.string "name"
+    t.text "bio"
+    t.boolean "teacher", default: false, null: false
+    t.text "experience"
+    t.string "expertise"
+    t.text "eager_to_learn"
   end
 
 end

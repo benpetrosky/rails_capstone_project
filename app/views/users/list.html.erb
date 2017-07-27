@@ -2,6 +2,6 @@
 
 <% @users.each do |user| %>
   <ul>
-    <li><%= image_tag user.profile_pic(:thumb) %>|<%= link_to user.name, user_path(user) %></li>
+    <li><%= image_tag user.profile_pic(:thumb), :class =>"list_picture" %><%= link_to user.name, user_path(user), :class =>"list_name" %></li>
   </ul>
   <% end %>
